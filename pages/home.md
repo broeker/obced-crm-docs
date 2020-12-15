@@ -1,132 +1,71 @@
 ---
-title: Getting started
-date: 2020-11-20
+layout: layouts/home.njk
+title: OBCED CRM | Technology Empowerment Center Build Plan
+date: 2020-11-13T00:00:00.000Z
 permalink: /
-toc: true
 eleventyNavigation:
   key: Home
-  title: Getting started
   order: 0
 ---
 
-Create your own spacebook exactly like this one and customize it to your needs. Spacebooks are speedy to set up, free, and 100% open source.
+# CRM Build plan
+Electric Citizen | November 2020
 
-- **Easy to use** 😀 -- add a new page and it appears magically in your navigation
-- **Writing focused** ❤️ -- beautiful typography and a minimalist design managed with easy-to-use Markdown
-- **Speedy and accessible** 🚀 -- static files, responsive system fonts, minimal JavaScript, purge and minify All the Things, accessible to all people and devices
-- **Privacy first** 🔒 -- User-agent: \* Disallow: / is set by default with noreferrer set on all links; encrypt your full site with a password if desired
-- **Flexible** 💪 -- disable features you don't need, add advanced features with serverless functions or Alpine.js
+This minisite contains documentation and wireframes to outline the final build plan for the OBCED Technology Empowerment Center CRM. Please review and reply with any potential concerns or questions about this plan. Once approved we will commence development.
 
-Spacebooks are modern notebooks you can use to create documentation, sketch out new ideas, or whatever suits your fancy.
+* This plan is adaptable to small changes (e.g. different search filters, or prioritized fields in views)
+* There are still open questions, as documented in the wireframe dev notes; many of these can be answered as we go 
+* The application will follow Drupal standards/user interface elements; the wireframes are only a general representation of overall functionality
+* Any significant changes or new features not documented in this build plan will require additional budget and time to complete
 
----
+## Project overview
 
-## Launch a new spacebook
+We are recreating an existing FileMaker CRM developed by OBCED that is used internally to track clients, donors, donations, inventory, classes, class registrations, and computer repair incidents. The CRM will be integrated into the existing admin area of the OBCED Drupal 8 website hosted on the UMN enterprise platform. Where possible, we have tried to improve upon and simplify the existing FileMaker tool while maintaining its core functionality. 
 
-You can launch your own spacebook and deploy it to the cloud on Netlify with the click of a button. You'll need an existing [Github account](https://github.com/) and a [Netlify account](https://www.netlify.com/) (which you can create during this process if you wish): 
+## Key requirements
 
-<div class="flex width-full  justify-center">
-<a class="bg-green-700 hover:bg-blue-600 text-white no-underline px-4 py-2 rounded" href="https://app.netlify.com/start/deploy?repository=https://github.com/broeker/spacebook">Deploy to Netlify!</a>
-</div>
+The system is for internal use only, and will be managed by OBCED CRM managers to complete the following tasks:
 
-This process will automatically copy the spacebook repository to your own personal Github account. Once complete, your new spacebook will be automatically deployed on Netlify and ready for customization. 👍
+* Add and manage clients 
+* Add and manage client repair tickets
+* Add and manage client class registrations
+* Manage client "requirements" and eligibility status
+* Manage "donations" of equipment to clients
+* Add and manage donors
+* Manage computer equipment inventory (gifts or donations from donor)
+* Manage a list of classes so that class requirements can be added and tracked per client
+* Provide reporting capabilities (CSV/Excel exports)
 
----
+## Other notes
 
-## What is a spacebook? 
+* OBCED will enter new data manually into the CRM
+* Several fields currently call for an "other" option (e.g. yes/no/other) -- there is a Drupal module available that should help us offer this functionality, but we have not used it so the ultimate functionality will be determined by how well this module works in its current state.
+* All relevant data in the system will be available for csv/Excel exports for advanced reports
+* The number of "custom" reports built into the system for phase one will be limited
+* See dev notes on the "Reporting" wireframe 
+* More advanced built-in reports can be added in a future phase
 
-A spacebook is a simple website generator that will help you create your own project just like this one using a bunch of super cool, modern, and fast technology:
+## Definitions and vocabulary
 
-- [Eleventy](https://www.11ty.io) a super fast Node-based static site generator that stays out of your way and lets you ship only what you want to ship 🚀
-- [Tailwind 2.0](https://tailwindcss.com/) a brilliant and tiny utility-first CSS framework 🎨
-- [Alpine.js](https://github.com/alpinejs/alpine) a minimal utility-first framework for simple or advanced JavaScript 🕹️
-- [Elasticlunr](http://elasticlunr.com/) a lightweight full-text search engine 🔍
-- [Advanced Markdown-it support](https://github.com/markdown-it/markdown-it) with footnotes, custom containers, emoji support, tables, task lists, and auto-linked images ✏️
-- [Netlify](https://www.netlify.com/) for cloud hosting and one-click installs, easy form support, and an automated [Github](https://github.com/) deployment pipepline 🤖
-- [Netlify CMS](https://www.netlify.com/) (optional) to provide an easy Markdown editor for creating and changing content with optional [Cloudinary support](https://cloudinary.com/) for advanced image management. 💻
+**Client:** A user of OBCED's services. Clients can be added manually by OBCED staff or via a public form that allows them to create a client node (to be approved by OBCED staff.) 
 
-Don't worry; you don't need to know or understand any of this to launch a spacebook but it results in a speedy, easy-to-use, and accessible website that typically scores 100s across the board on Google Lighthouse metrics for mobile and desktop:
- 
+**Donor:** A donor is an outside organization who donates equipment to OBCED
 
-![Performance](/static/img/spacebook.png)
+**Inventory:** Inventory is a database of all equipment donated to OBCED by its donors. When somebody gives to OBCED, the equipment is entered into inventory by OBCED staff and available to eligible clients.
 
-::: callout
-**Did you know?** If you enable the optional Netlify CMS or add an analytics script, you may lose 1-3 performance points but this is a pretty swell starting point. 👍
-:::
+**Donation:** A "donation" is the act of granting a piece of inventory to a specific client. When this happens, a "donation" node is created to keep track of the donation. The "inventory" remains in the inventory database, but its stock is set to 0 to indicate it is no longer available.
 
-If you wish, you may customize your spacebook or use it as the basis for your creating your own starter. It was built on the [shoulders of giants](/credits).
+**Class:** A class is a manually maintained list of classes that a client can take in order to become eligible. 
 
----
+**Class registration:** A class registration node is created whenever OBCED staff adds a new class to a client. 
 
-## Who needs a spacebook?
+**Computer repairs:** A computer repair node is created each time OBCED opens a repair ticket for a client.
 
-A spacebook is for anybody who believes in the [#indieweb](https://indieweb.org/) and wants a simple, modern, and free way to put a notebook-like thing on the web that they own and control:
+**Note:** Under this model, "donations" are exclusively used in the context of OBCED gifting/donation equipment to a "client." Equipment provided or gifted to OBCED is referred to and tracked directly as "inventory." The inventory database is meant to be a historical record of ALL equipment coming into OBCED from its donors. When a piece of inventory is donated to a client, it will be marked as 0 inventory and no longer available for future donations. However, it will remain available in the inventory database for historical and reporting purposes.
 
-- Writers and thinkers
-- Planners and dreamers
-- Technical doc writers
-- Project managers
-- Teachers and students
+## Client responsibilities
 
-Anybody who is willing to learn a few simple things can create as many spacebooks as they'd like for any reason in the world.
-
----
-
-## Install spacebook
-
-In theory, you can launch a spacebook without ever downloading the code or running your site locally. Just click that big green button and edit your files directly on Github! (The Github UI is fairly mobile friendly, and it is entirely possible to launch and manage a spacebook entirely via your phone :))  
-
-But if you want to customize your codebase or write your Markdown files in a local editor, you'll want to download and install your site locally.
-
-### Requirements
-
-You must be running **Node version 12 or higher** due to the Tailwind 2.0 release. I recommend using NVM to easily manage your Node versions if you need to switch back and forth between older versions.
-
-- [Node](https://nodejs.org/)
-- [NVM](https://github.com/nvm-sh/nvm) (optional)
-
-**To find your current node version:**
-
-```
-node --version
-```
-
-### Step one
-
-If already have a Github repository from a Netlify install, simply clone a copy of your new repository:
-
-```
-git clone https://github.com/<your-username>/<your-repository>
-```
-
-If you just want to try this out locally, you can clone the Spacebook repository directly:
-
-```
-git clone https://github.com/broeker/spacebook
-```
-
-_Note: You'll need to remove the existing .git file and add your own upstream repository if you want to use this as a basis for moving forward. You can also simply copy or [fork the repository](https://github.com/broeker/spacebook) directly from Github._
-
-### Step two
-
-Install the site and run an initial build command:
-
-```
-cd spacebook
-
-npm install
-
-npn run build (only necessary the first time!)
-```
-
-_If you get errors here, double check your node version!_
-
-### Step three
-
-Now spin up your local server to see your site!
-
-```
-npm run start
-```
-
-This command will start a local server and you'll be able to work on your site with hot reloads and some nice Browsersync features. If you install your site locally without connecting it to Netlify, you can easily do so later by moving your code into its own Github repository, and then creating a new Netlify site connected to that repository. 💥
+* Client will manually move/recreate data from their current system
+* Client will provide the "terms" for each of the numerous taxonomies used in the system
+* e.g. gender options, inventory quality options, income level options, skill level options, etc. (see data model for all vocabularies)
+* Some of these categories are obvious and already defined, but some should be refined and/or provide by client
