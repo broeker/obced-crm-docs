@@ -1,5 +1,4 @@
 ---
-layout: layouts/home.njk
 title: OBCED CRM | Technology Empowerment Center Build Plan
 date: 2020-11-13T00:00:00.000Z
 permalink: /
