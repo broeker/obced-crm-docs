@@ -1,15 +1,11 @@
 ---
-title: OCRM Build plan
+title: CRM Build plan
 date: 2020-11-13T00:00:00.000Z
 permalink: /
 eleventyNavigation:
   key: Home
   order: 0
 ---
-
-# CRM Build plan
-Electric Citizen | November 2020
-
 This minisite contains documentation and wireframes to outline the final build plan for the OBCED Technology Empowerment Center CRM. Please review and reply with any potential concerns or questions about this plan. Once approved we will commence development.
 
 * This plan is adaptable to small changes (e.g. different search filters, or prioritized fields in views)
